@@ -155,6 +155,10 @@ const Sidebar = () => {
   const handleDrawerClose = () => {
     setOpen(false);
   };
+  const signOut = () => {
+    firebase.auth().signOut();
+    history.push("/");
+  };
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
   //  console.log(input)
   return (
@@ -191,7 +195,7 @@ const Sidebar = () => {
             <AddBoxIcon />
           </IconButton>
           Log out
-          <IconButton color="inherit" onClick={() => firebase.auth().signOut()}>
+          <IconButton color="inherit" onClick={() => signOut()}>
             <ExitToAppRoundedIcon />
           </IconButton>
         </Toolbar>
