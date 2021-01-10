@@ -116,30 +116,40 @@ const Chat = () => {
         </form>
         <hr></hr>
         <p className="h3 mt-5">Post Section </p>
-        {posts.map((post, id) => {
-          return (
-            <p
-              style={{
-                background: "#83a1cc",
-                borderBlockStyle: "double",
-                cursor: "pointer",
-                width: "50%",
-              }}
-              key={id}
-              onClick={() => selectPost(post)}
-              className="h6"
-            >
-              {post.name} ?
-            </p>
-          );
-        })}
+        <div
+          style={{
+            height: "300px",
+            overflow: "auto",
+          }}
+        >
+          {posts.map((post, id) => {
+            return (
+              <p
+                style={{
+                  borderBlockStyle: "double",
+                  cursor: "pointer",
+                  width: "100%",
+                }}
+                key={id}
+                onClick={() => selectPost(post)}
+                className="h6"
+              >
+                {post.name} ?
+              </p>
+            );
+          })}
+        </div>
         <form className="App float-left">
           <input
             onChange={(e) => setInput(e.target.value)}
             value={input}
             placeholder="Post your question here"
           ></input>
-          <button type="submit" onClick={(e) => addPost(e)}>
+          <button
+            style={{ height: "100%" }}
+            type="submit"
+            onClick={(e) => addPost(e)}
+          >
             create Post
           </button>
         </form>
