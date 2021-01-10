@@ -23,11 +23,13 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import DashboardIcon from "@material-ui/icons/Dashboard";
-import AddBoxIcon from '@material-ui/icons/AddBox';
-import AddIcon from '@material-ui/icons/Add';
+import AddBoxIcon from "@material-ui/icons/AddBox";
+import AddIcon from "@material-ui/icons/Add";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import { useHistory } from "react-router-dom";
+import ExitToAppRoundedIcon from "@material-ui/icons/ExitToAppRounded";
+
 const drawerWidth = 240;
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -111,7 +113,7 @@ const useStyles = makeStyles((theme) => ({
 const Sidebar = () => {
   const classes = useStyles();
   const [channel, setChannel] = useState([]);
-  const [input, setInput] = useState("");
+  // const [input, setInput] = useState("");
   const history = useHistory();
   const [open, setOpen] = React.useState(true);
 
@@ -130,13 +132,13 @@ const Sidebar = () => {
   }, []);
 
   const addChannel = () => {
-    // const channelName =  prompt('Inter channel name');
-    if (input) {
+    const channelName = prompt("Inter channel name");
+    if (channelName) {
       firebase.firestore().collection("rooms").add({
-        name: input,
+        name: channelName,
       });
     }
-    setInput("");
+    // setInput("");
   };
 
   const selectChannel = (id, title) => {
@@ -185,10 +187,12 @@ const Sidebar = () => {
             Dashboard
           </Typography>
           Add Channel
-          <IconButton color="inherit">
-           
-              <AddBoxIcon />
-            
+          <IconButton color="inherit" onClick={() => addChannel()}>
+            <AddBoxIcon />
+          </IconButton>
+          Log out
+          <IconButton color="inherit" onClick={() => firebase.auth().signOut()}>
+            <ExitToAppRoundedIcon />
           </IconButton>
         </Toolbar>
       </AppBar>
@@ -204,7 +208,7 @@ const Sidebar = () => {
             <ChevronLeftIcon />
           </IconButton>
         </div>
-        <MDBPopover placement="bottom" popover clickable id="popper3">
+        {/* <MDBPopover placement="bottom" popover clickable id="popper3">
           <MDBBtn>Add Channel</MDBBtn>
           <div className="p-5 mt-5">
             <MDBPopoverHeader>Add new channel</MDBPopoverHeader>
@@ -226,7 +230,7 @@ const Sidebar = () => {
               </div>
             </MDBPopoverBody>
           </div>
-        </MDBPopover>
+        </MDBPopover> */}
 
         <Divider />
         {channel.map((doc, key) => {
