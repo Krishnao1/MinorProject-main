@@ -23,6 +23,8 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import DashboardIcon from "@material-ui/icons/Dashboard";
+import AddBoxIcon from '@material-ui/icons/AddBox';
+import AddIcon from '@material-ui/icons/Add';
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import { useHistory } from "react-router-dom";
@@ -182,10 +184,11 @@ const Sidebar = () => {
           >
             Dashboard
           </Typography>
+          Add Channel
           <IconButton color="inherit">
-            <Badge badgeContent={4} color="secondary">
-              <NotificationsIcon />
-            </Badge>
+           
+              <AddBoxIcon />
+            
           </IconButton>
         </Toolbar>
       </AppBar>

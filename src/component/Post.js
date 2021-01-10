@@ -72,9 +72,9 @@ const  Post = ()=> {
                           <div className="p-2 col-example text-left bg-msg-f h-50"><img src={comment.image}   className="rounded float-left img-msg" alt="aligment" />
                           </div>
                          <div className="col-example text-left d-flex bg-msg-f flex-wrap">
-                             <span className="font-weight-bold text-dark bg-msg-f w-auto bord">{comment.user}  </span>
+                             <span className="font-weight-bold text-dark bg-msg-f w-auto bord ml-2">{comment.user}  </span>
                              <span className="text-black-50 bg-msg-f w-auto bord mukul">&nbsp;  {new Date(comment.timestamp?.toDate()).toLocaleTimeString()}</span>   
-                             <span className="msg text-left text-dark w-100 muku">{comment.name} </span>
+                             <span className="msg text-left text-dark w-100 muku ml-2">{comment.name} </span>
                          </div>
                         
                     </div>
