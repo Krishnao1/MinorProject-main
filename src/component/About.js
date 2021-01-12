@@ -1,5 +1,5 @@
 import React from "react";
-import { MDBJumbotron,  MDBContainer} from "mdbreact";
+import { MDBJumbotron,  MDBContainer,  MDBRow, MDBCol,MDBView} from "mdbreact";
 import Footer from './Footer';
 import Header from './Header/MainHeader'
 import './Css/About.css'
@@ -25,12 +25,26 @@ const AboutUs = () => {
             
           </MDBJumbotron>
           <MDBContainer className='mt-5 font-body'>
-          <p className="text-left h5">Once your entrance exams are over, you try to find better colleges for you. You require a proper medium to know about everything the colleges you wish to get in. Mentors of InstiBuddy will tell you what you should choose and will solve all of your doubts through live interaction. That's why we say, "If colleges are the planets, we are the telescope".</p>
-          <p className="text-left h5">Similarly, when you get promoted from your 12th grade, you can't just search for colleges without a proper medium. There are thousands of colleges, and they are present far away from your reach. You will need a well-designed medium to have a glimpse at these colleges (that you wish to get in). Furthermore, a better medium will help you understand the appearance & mechanism of the colleges. That is where InstiBuddy comes in for you.
-Once the entrance exams are over, students become anxious about the college they wish to get in. Many students are confused between two or more colleges and are worried about which one is better for them. The score of your result throws you into the maze of decisions. keep striking in your head. To get you out of this maze, Mentors from InstiBuddy will guide you. You can interact with a Mentor live through our app/website and have a proper discussion regarding your doubts. You choose the college that you wish to get in and the Mentor will tell you anything you want to know... as well as everything you should know.
-When you confirm which college to join then also the problem does not end. Once your college starts then your problems increases. Common thoughts which cause problems are how to handle academics, what should I learn to excel, how are the opportunities of learning new skills which you always dreamt of and what are their scope and many more.</p>
-          <p className="text-left h5">Instibuddy will help you resolve these problems. We'll provide you with a Mentor(of the college you wish to join or the college you are in), with whom you can interact through a video call to clear all your doubts.</p>
-          </MDBContainer>
+          <MDBContainer>
+        <MDBRow>
+          <MDBCol lg="6">
+            <p className='h4'>Before online forum</p>
+            <MDBView waves>
+              <img src="./online.jpg" className="img-fluid" alt="" />
+            </MDBView>
+          </MDBCol>
+          <MDBCol lg="6">
+          <p className='h4'>After online forum</p>
+            <MDBView waves>
+              <img src="./group.jpg" className="img-fluid" alt="" />
+            </MDBView>
+          </MDBCol>
+        </MDBRow>
+      </MDBContainer>
+      <p className="text-left h5">Online forums can be used for many purposes, such as helping students to review material prior to an assignment or exam, engaging students in discussion of course material before coming to class, and reflecting on material that they have read or worked with outside of class.</p>
+          <p className="text-left h5">If they are well-structured, online discussions can be an effective way to bolster student learning outside of class; however, GSIs often find that students’ entries do not reflect strong engagement. What went wrong? What steps can you take to make an online discussion forum a more effective learning tool for your students?</p>
+         
+         </MDBContainer>
             
             <Footer/>
     </div>

@@ -1,10 +1,43 @@
 import React,{useState} from "react";
-import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn, MDBCard, MDBCardBody } from 'mdbreact';
+import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn, MDBCard, MDBCardBody, MDBIcon } from 'mdbreact';
 import './Css/Signup.css'
 import Header from './Header/MainHeader'
 import Footer from './Footer'
-import firebase from '../firebase';
+import firebase ,{provider_g ,provider_fb , provider_tw} from '../firebase';
 const SignUp = () => {
+   const google = ()=>{ 
+      firebase.auth().signInWithPopup(provider_g).then((result)=>{ 
+        let photo = result.user.photoURL;
+        let Name = result.user.displayName;
+        firebase.firestore().collection('users').doc(result.user.uid).set({
+          Name,photo
+        })
+      }).catch((e)=>{
+        alert(e.message)
+      })
+    }
+    const facebook = ()=>{ 
+      firebase.auth().signInWithPopup(provider_fb).then((result)=>{ 
+        let photo = result.user.photoURL;
+        let Name = result.user.displayName;
+        firebase.firestore().collection('users').doc(result.user.uid).set({
+          Name,photo
+        })
+      }).catch((e)=>{
+        alert(e.message)
+      })
+    }
+    const twitter = ()=>{ 
+      firebase.auth().signInWithPopup(provider_tw).then((result)=>{ 
+        let photo = result.user.photoURL;
+        let Name = result.user.displayName;
+        firebase.firestore().collection('users').doc(result.user.uid).set({
+          Name,photo
+        })
+      }).catch((e)=>{
+        alert(e.message)
+      })
+    }
 const [name , setName] = useState('')
 const [phone , setPhone] = useState('')
 const [email , setEmail] = useState('')
@@ -147,6 +180,18 @@ return (
                            Register
                         </MDBBtn>
                      </div>
+                     <p className="text-center mt-5 font-body">or Sign up with:</p>
+        <MDBRow className="mt-2 mb-3 d-flex justify-content-center">  
+                <a href={() => false} className="fa-lg p-2 m-2 fb-ic">
+                  <MDBIcon fab icon="facebook-f" size="lg" className="orange-text" onClick={facebook} />
+                </a>
+                <a href={() => false} className="fa-lg p-2 m-2 tw-ic">
+                  <MDBIcon fab className="fa-twitter orange-text fa-lg" onClick={twitter} />
+                </a>
+                <a href={() => false} className="fa-lg p-2 m-2 gplus-ic">
+                  <MDBIcon fab className="fa-google-plus-g orange-text fa-lg" onClick={google}/>
+                </a>
+              </MDBRow>
                   </form>
                </MDBCardBody>
             </MDBCard>

@@ -59,14 +59,13 @@ return (
           <div className="p-1 pb-3">
           <p className="font-small d-flex justify-content-end pb-3 float-left">
           Not a member?
-                <a href="#!" className="blue-text ml-1">
+                <a href="/signup" className="blue-text ml-1">
                 Sign up
                 </a>
               </p>
               <p className="font-small blue-text d-flex justify-content-end pb-3 float-right">
                 Forgot
-                <a href="#!" className="blue-text ml-1">
-
+                <a href={() => false} className="blue-text ml-1">
                   Password?
                 </a>
               </p>
@@ -77,13 +76,13 @@ return (
         </div>
         <p className="text-center mt-5 font-body">or Sign in with:</p>
         <MDBRow className="mt-2 mb-3 d-flex justify-content-center">  
-                <a  className="fa-lg p-2 m-2 fb-ic">
+                <a href={() => false} className="fa-lg p-2 m-2 fb-ic">
                   <MDBIcon fab icon="facebook-f" size="lg" className="orange-text" onClick={facebook} />
                 </a>
-                <a  className="fa-lg p-2 m-2 tw-ic">
+                <a href={() => false} className="fa-lg p-2 m-2 tw-ic">
                   <MDBIcon fab className="fa-twitter orange-text fa-lg" onClick={twitter} />
                 </a>
-                <a  className="fa-lg p-2 m-2 gplus-ic">
+                <a href={() => false} className="fa-lg p-2 m-2 gplus-ic">
                   <MDBIcon fab className="fa-google-plus-g orange-text fa-lg" onClick={google}/>
                 </a>
               </MDBRow>
